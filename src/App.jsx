@@ -640,7 +640,7 @@ function App() {
             </section>
           </div>
           {openDialog && <SearchDialog onClose={handleSearchBarClick} todos={JSON.stringify(originalTodoList)} handleEditDialog={handleEditDialog} />}
-          {editDialog && <DeleteCard id={Number(editDialogString.substring(0, editDialogString.indexOf(' ')))} todoName={editDialogString.substring(editDialogString.indexOf(' ') + 1)} closePopup={closeDeletePopup} editTodo={editTodo} deleteTodo={closePopupAfterDelete} />}
+          {editDialogString !== 'close' && editDialog && <DeleteCard id={Number(editDialogString.substring(0, editDialogString.indexOf(' ')))} todoName={editDialogString.substring(editDialogString.indexOf(' ') + 1)} closePopup={closeDeletePopup} editTodo={editTodo} deleteTodo={closePopupAfterDelete} />}
           {emptyTodoList ? <div id='empty-todo-state'>
             <img src="./src/assets/undraw_no-data_ig65.svg" alt="" />
             <p>No todos to show. Add new tasks!</p>
