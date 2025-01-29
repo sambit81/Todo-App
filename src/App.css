@@ -1,0 +1,399 @@
+body {
+  margin: 0;
+}
+
+hr {
+  border: 0;
+  border-top: 2px solid #d8cdcd;
+  margin: 20px 0;
+  margin-bottom: 0;
+}
+
+.main-container {
+  display: grid;
+  grid-template-columns: 200px auto;
+}
+
+#content {
+  grid-column: 2;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 15px;
+  padding: 20px;
+  padding-bottom: 40px;
+  background-color: #f9f9f9;
+  height: calc(100% - 170px);
+  margin-top: 170px;
+  box-sizing: border-box;
+  overflow-y: auto;
+  margin-bottom: 100px;
+  /**
+  display: flex;
+  flex-wrap: wrap;*/
+}
+
+#empty-todo-state {
+  text-align: center;
+  margin-top: 170px;
+}
+
+#empty-todo-state img {
+  width: 150px;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+#empty-todo-state p {
+  color: #555;
+  font-size: 18px;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  background-color: #b68d40;
+  /*
+  margin: auto -16px;
+  padding: 16px 32px;
+  */
+  padding: 16px 20px;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+#title {
+  margin-left: 15px;
+  font-family: McLaren, cursive;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/*
+#add-todo {
+  margin: auto 15px auto 0;
+  font-size: 30px;
+  color: white;
+  cursor: pointer;
+}
+*/
+
+.popup-todo {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  z-index: 1004;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.popup-container {
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  overflow: hidden;
+  width: 320px;
+  background: #fff;
+}
+
+#heading-top {
+  height: 40px;
+  background-color: #122620;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
+
+#label-todo {
+  margin: 15px;
+  font-size: 25px;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+#todo-name {
+  margin-top: 0;
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+  /* width: 100%; */
+  box-sizing: border-box;
+  margin-left: 15px;
+  margin-right: 15px;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+#button-div,
+#button-div-delete,
+#button-div-edit {
+  display: flex;
+  justify-content: space-between;
+}
+
+#button-div-inner-div {
+  display: flex;
+  align-items: end;
+  margin-left: 15px;
+  margin-bottom: 15px;
+  color: red;
+}
+
+#button-div-inner-div>p {
+  margin-left: 2px;
+  margin-bottom: 2px;
+  margin-right: 0;
+  margin-top: 0px;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+#todo-submit {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  background-color: #d6ad60;
+  color: #fff;
+  margin-left: 15px;
+  margin-right: 15px;
+  margin-bottom: 15px;
+  width: 30%;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 16px;
+}
+
+#todo-submit:hover {
+  background-color: #c17d00;
+}
+
+#button-div-filter {
+  
+  /* display: flex; */
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  position: fixed;
+  top: 82px;
+  z-index: 1001;
+  /* width: 100%; When you set width: 100% on a fixed element, it calculates its width relative to the viewport. */
+  background-color: white;
+}
+
+#filter, #filter-date {
+  width: auto;
+  margin-top: 15px;
+  margin-left: 15px;
+  margin-right: 15px;
+  margin-bottom: 15px;
+  background: #fff;
+  border-radius: 8px;
+  cursor: pointer;
+  border: 1px solid #c17d00;
+  color: black;
+  padding: 12px 12px;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 16px;
+}
+
+#filter:hover, #filter-date:hover {
+  background: rgb(245, 242, 242);
+}
+
+#filter-date {
+  outline: none;
+}
+
+#filter-date:focus {
+  border: 1px solid #c17d00;
+}
+
+/**
+.customDatePickerWidth, 
+.customDatePickerWidth > div.react-datepicker-wrapper, 
+.customDatePickerWidth > div > div.react-datepicker__input-container
+.customDatePickerWidth > div > div.react-datepicker__input-container input {
+   width: 100%;
+   position: fixed;
+   z-index: 1500;
+}
+*/
+
+/*
+.datepicker-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* Blur Background */
+/*
+.datepicker-backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  /*backdrop-filter: blur(5px);*/ /* Blurs the background */
+  /*z-index: 999;
+}
+*/
+/* Dialog Box */
+/*
+.datepicker-dialog {
+  position: relative;
+  z-index: 1000;
+  background: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  max-width: 400px;
+  width: 90%;
+}
+*/
+#sidebar {
+  top: 82px;
+  height: calc(100% - 82px);
+  z-index: 1002;
+}
+
+.filter-checked {
+  border: none !important;
+  background: #c17d00 !important;
+  color: white !important;
+}
+
+#close-button {
+  margin-right: 12px;
+  color: white;
+  cursor: pointer;
+}
+
+#close-button:hover {
+  color: grey;
+}
+
+#checkbox {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+#checkbox-close {
+  display: flex;
+  justify-content: end;
+  padding: 10px 10px;
+}
+
+#chip {
+  background-color: #D6AD60;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  border-radius: 20px;
+  cursor: pointer;
+  margin-left: 5px;
+  flex-shrink: 0;
+}
+
+#chip:hover {
+  filter: brightness(110%);
+}
+
+#chip > p {
+  margin: 0;
+  font-family: Helvetica, Arial, sans-serif;
+  display: inline-block;
+}
+
+#chip > span {
+  margin: 0;
+  font-size: 15px;
+}
+
+#filter-clear-all {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 15px;
+  color: #5f6368;
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-left: 10px;
+  margin-right: 10px;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+#delete-all {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 15px;
+  color: rgb(239, 239, 239);
+  cursor: pointer;
+}
+
+#filter-clear-all:hover, #delete-all:hover {
+  filter: brightness(125%);
+}
+
+.filter-chips {
+  display: flex;
+  /* background-color: #2c3e50; */
+  width: auto;
+
+  /* min-height: 50px; */
+  align-items: center;
+  overflow-x: auto;
+  margin-right: 20px;
+  /*
+  //padding: 10px;
+  //box-sizing: border-box;
+  */
+}
+
+.card-demo::-webkit-scrollbar {
+  /*
+  display: none;*/
+}
+
+.card--content {
+  background-color: #e74c3c;
+  min-width: 200px;
+  margin: 5px;
+}
