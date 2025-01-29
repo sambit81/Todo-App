@@ -191,20 +191,6 @@ function App() {
     }
     setFilterEnabled(!filterEnabled);
     document.querySelector("#filter").classList.toggle("filter-checked");
-
-    let array = [];
-    for (let index = 0; index < 20; index++) {
-      const newItem = {
-        id: index,
-        name: "strings" + index,
-        date: `${Time.getWeekDayName()}, ${Time.getDay()} ${Time.getMonth()} ${Time.getYear()}`,
-        time: `${Time.getTime('12')}`
-      };
-      array.push(newItem);
-    }
-    const jsonArray = generateJsonArray(100);
-    setTodoList(jsonArray);
-    setOriginalTodoList(jsonArray);
   }
 
   function handleDateFilterClick() {
@@ -249,55 +235,7 @@ function App() {
     document.querySelector("#filter").classList.toggle("filter-checked");
     setFilterEnabled(!filterEnabled);
   }
-
-  function generateRandomDate(rangeInDays) {
-    const today = new Date();
-    const pastDate = new Date(today.getTime() - (Math.random() * rangeInDays * 24 * 60 * 60 * 1000));
-    return pastDate;
-  }
-
-  function formatDate(date) {
-    const options = { weekday: "long" }; // Only fetch weekday
-    let day = date.getDate();          // Get day (numeric)
-    if (day < 10) {
-      day = "0" + day;
-    }
-    const month = date.toLocaleString("en-US", { month: "long" }); // Get month (long format)
-    const year = date.getFullYear();     // Get full year
-
-    // Construct the desired format
-    const formattedDate = `${date.toLocaleDateString("en-US", options)}, ${day} ${month} ${year}`;
-    return formattedDate;
-  }
-
-  function formatTime(date) {
-    const options = { hour: '2-digit', minute: '2-digit', hour12: true };
-    return date.toLocaleTimeString("en-US", options);
-  }
-
-  function generateJsonArray(count) {
-    const jsonArray = [];
-    const ranges = [
-      { label: "today", range: 1 },
-      { label: "last 7 days", range: 7 },
-      { label: "last 30 days", range: 30 },
-      { label: "last 6 months", range: 180 },
-      { label: "last year", range: 365 }
-    ];
-
-    for (let i = 1; i <= count; i++) {
-      const randomRange = ranges[Math.floor(Math.random() * ranges.length)];
-      const randomDate = generateRandomDate(randomRange.range);
-      jsonArray.push({
-        id: i,
-        name: `Task ${i}`,
-        date: formatDate(randomDate),
-        time: formatTime(randomDate)
-      });
-    }
-    return jsonArray;
-  }
-
+  
   function handleCheckboxClick() {
     let maxDays = 0;
     let checkedSomething = false;
