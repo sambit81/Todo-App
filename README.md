@@ -50,6 +50,11 @@ Ensure you have the following installed:
 
 ```
 Todo App/
+├── gifs/                     # GIFs demonstrating app functionality
+│   ├── Applying Filters.gif
+│   ├── Creating and Editing Todos.gif
+│   ├── Delete Todos.gif
+│   ├── Search Todos.gif
 ├── public/
 │   ├── icon.ico               # App icon
 │   ├── vite.svg               # Vite logo
@@ -75,6 +80,7 @@ Todo App/
 │   ├── SearchDialog.jsx       # Dialog for searching tasks
 │   ├── time.js                # Utility functions for time and date formatting
 ├── .gitignore                 # Files to be ignored by Git
+├── README.md                  # Documentation for the project
 ├── index.html                 # App entry HTML
 ├── package.json               # Project metadata and dependencies
 ├── package-lock.json          # Dependency lock file
